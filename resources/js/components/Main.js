@@ -39,10 +39,7 @@ class Main extends Component {
 
 	
         return (
-            <div>
-                <h3>All Products In DB</h3>
-		
-			<div className="col-md-6 mt-4 text-center">
+            <div className="col-md-12 mt-4 text-center">
 				<table className="table table-striped">
 					<thead>
 						<tr>
@@ -56,7 +53,7 @@ class Main extends Component {
 					{ this.renderProducts() }
 				</table>
 			</div>
-            </div>
+            
         );
     }
 }
