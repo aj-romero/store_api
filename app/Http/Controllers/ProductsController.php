@@ -32,47 +32,76 @@ class ProductsController extends Controller
             'price' => 'numeric|required',
             'quantity'=>'integer|required',
             'availability' => 'boolean',
-            ]);        
-        $product = Product::create($request->all());
- 
-        return response()->json($product, 201);
+            ]);
+        
+        if($request->user()->hasRole('admin')){
+            $product = Product::create($request->all());
+            return response()->json($product, 201);
+        }
+        else {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+                
+        
     }
  
     public function update(Request $request, Product $product)
     {
-        $p = Product::find($product->id);
-        
-        $product->update($request->all());
+        if($request->has('price')){
+            if($request->user()->hasRole('admin')){
+                $p = Product::find($product->id);
+                $product->update($request->all());
+                //this is for save log when price is updated
+               
 
-        //this is for save log when price is updated
-        if($p->price != $request->price && $request->has('price'))
-        {
-            $logProduct = new LogProduct();
-            $logProduct->old_price = $p->price;
-            $logProduct->new_price = $request->price;
-            $p->logProducts()->save($logProduct);
-        }	
+                if($p->price != $request->price)
+                {
+                    $logProduct = new LogProduct();
+                    $logProduct->old_price = $p->price;
+                    $logProduct->new_price = $request->price;
+                    $p->logProducts()->save($logProduct);
+                }	
+                    
+                return response()->json($product, 200);
+
+            }
+            else{
+                return response()->json(['message' => 'Unauthorized'], 401);
+            }
+                
+        }
+        else{
+            $product->update($request->all());
+            return response()->json($product, 200);
+        }
         
-	
- 
-        return response()->json($product, 200);
+        
     }
 
     public function setLike(Request $request, Product $product)
     {
-        $likes = $product->likes;
-        $likes++;
-        $product->likes = $likes;
-
-        $product->update();
-
-        return response()->json(['message'=>'The Product get new like, thank you!','product'=>$product],200);
+        if($request->user()->hasAnyRole(['admin','user'])){
+            $likes = $product->likes;
+            $likes++;
+            $product->likes = $likes;
+            $product->update();
+            return response()->json(['message'=>'The Product get new like, thank you!','product'=>$product],200);
+        }
+        else{
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+        
     }
  
-    public function delete(Product $product)
+    public function delete(Request $request,Product $product)
     {
-        $product->delete();
- 
-        return response()->json(null, 204);
+        if($request->user()->hasRole('admin')){
+            $product->delete();
+            return response()->json(null, 204);
+        }
+        else{
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+        
     }
 }
