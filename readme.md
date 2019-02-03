@@ -30,11 +30,12 @@ With root create a new database for this api. For example: **store_api** and use
 ## Config and Execute
 
 - [1. Copy .env.example to .env. with this in the terminal **$cp .env.example .env** and set database configuration with your configuration...]
-<p align="center"><img src="https://framapic.org/8wfvTwM3dKeG/grlVJ5TiWPDM?t"></p>
-- [2. Execute at the terminal: $composer install ]
-- [3. Execute at the terminal: $npm install ]
-- [4. Execute at the terminal: $php artisan key:generate --ansi ]
-- [5. Execute at the terminal: $php artisan passport:install --force ]
+<p align="center"><img src="https://framapic.org/8wfvTwM3dKeG/grlVJ5TiWPDM.png"></p>
+
+- [2. Execute at the terminal: $composer install]
+- [3. Execute at the terminal: $npm install]
+- [4. Execute at the terminal: $php artisan key:generate --ansi]
+- [5. Execute at the terminal: $php artisan passport:install --force]
 
 
 ## How to use Store API
