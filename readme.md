@@ -61,6 +61,18 @@ Actions can be use in this API. Working with Postman.
 - [Add products]
     - Login as Admin user, set at Postman the headers Content-type: application/json  and X-Requested-With: XMLHttpRequest and at body set the paremeters. Use Method **POST** and press button **SEND**  
 
+    - example headers for login
+    <p align="center"><img src="https://framapic.org/fOEobA83khHh/bqOb5yCbrQtd.png"></p>
+
+    - Body for login
+    <p align="center"><img src="https://framapic.org/nCURE9WlD4ua/3q1jd5KeFopb.png"></p>
+
+    - Login successfull return a auth token
+    <p align="center"><img src="https://framapic.org/3V0Yv6Dt307V/kKUdYaB3jRZG.png"></p>
+    
+    
+    
+
 - [4.]
 - [5.]
 - [6.]
