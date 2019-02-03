@@ -69,7 +69,15 @@ Actions can be use in this API. Working with Postman.
 
     - Login successfull return a auth token
     <p align="center"><img src="https://framapic.org/3V0Yv6Dt307V/kKUdYaB3jRZG.png"></p>
-    
+
+    - For add a new product at header set the token auth. Example: Authorization: Token, at the body set the data and use json(Application/json)  set the URL [Add product](http://127.0.0.1:8000/api/products) with the Method **POST** and press button **SEND** 
+
+    - Header
+    <p align="center"><img src="https://framapic.org/c6v6hfU6dyid/MkMCyr2Z2TIN.png"></p>
+    - Body
+    <p align="center"><img src="https://framapic.org/e6gHrhY0jROF/5h4mGOtum73a.png"></p>
+    - Example adding product
+    <p align="center"><img src="https://framapic.org/7nWLXt5cN69Y/umNbFyeP4IPS.png"></p>
     
     
 
