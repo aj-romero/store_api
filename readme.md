@@ -70,7 +70,7 @@ Actions can be use in this API. Working with Postman.
     - Login successfull return a auth token
     <p align="center"><img src="https://framapic.org/3V0Yv6Dt307V/kKUdYaB3jRZG.png"></p>
 
-    - For add a new product at header set the token auth. Example: Authorization: Token, at the body set the data and use json(Application/json)  set the URL [Add product](http://127.0.0.1:8000/api/products) with the Method **POST** and press button **SEND** 
+    - For add a new product at header set the token auth. Example: Authorization: **Your_Token**, at the body set the data and use json(Application/json)  set the URL [Add product](http://127.0.0.1:8000/api/products) with the Method **POST** and press button **SEND** 
 
     - Header
     <p align="center"><img src="https://framapic.org/c6v6hfU6dyid/MkMCyr2Z2TIN.png"></p>
@@ -78,12 +78,33 @@ Actions can be use in this API. Working with Postman.
     <p align="center"><img src="https://framapic.org/e6gHrhY0jROF/5h4mGOtum73a.png"></p>
     - Example adding product
     <p align="center"><img src="https://framapic.org/7nWLXt5cN69Y/umNbFyeP4IPS.png"></p>
-    
-    
 
-- [4.]
-- [5.]
-- [6.]
+- [Update product]    
+   - For update a product at header set the token auth. Example: Authorization: **Your_Token**, at the body set the data and use json(Application/json)  set the URL [Update product](http://127.0.0.1:8000/api/products/1) with the Method **PUT** and press button **SEND**
+
+    and body set your test update
+    {
+        "name": "Pepsi 12 oz",
+        "description": "This is a new product with pepsi 12oz",
+        "price": 0.35,
+        "quantity": 100,
+        "likes": 0,
+        "availability": true
+    }
+
+- [Delete product]
+   - For delete a product at header set the token auth. Example: Authorization: **Your_Token**, set the URL [Delete product]http://127.0.0.1:8000/api/products/30 with the Method **DELETE** and press button **SEND**
+
+- [Set like to product]
+    - For set a like to a product at header set the token auth. Example: Authorization: **Your_Token** the URL [Set like] http://127.0.0.1:8000/api/products/29/like with the Method **PUT** and press button **SEND**
+
+- [Buy product]
+    - For buy a product at header set the token auth. Example: Authorization: **Your_Token** the URL [Buy product] http://127.0.0.1:8000/api/purchaseorders with the Method **POST** and press button **SEND**
+    And at the body set
+    {
+        "product_id":30
+        "quantity": 10,
+    }
 
 ## License
 
